@@ -1,6 +1,6 @@
-# Учебынй проект reStore
+# Учебный проект reStore
 
-### Интересные моменты
+### Интересные моменты:
 
 - функция compose (utils/index)
 - context api (components/BookstoreServiceContext)
