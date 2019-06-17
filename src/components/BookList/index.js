@@ -6,6 +6,7 @@ import { booksLoaded } from '../../actions';
 import { BookListItem } from '../BookListItem';
 import { withBookstoreService } from '../hoc/withBookstoreService';
 import { compose } from '../../utils';
+import { Spinner } from '../Spinner';
 
 const BooksListStyled = styled.ul`
   list-style-type: none;
@@ -17,15 +18,20 @@ const BookListItemStyled = styled.li`
 
 class BookList extends React.Component {
   componentDidMount() {
-    const { bookstoreService } = this.props;
-    const data = bookstoreService.getBooks();
+    const { bookstoreService, booksLoaded } = this.props;
 
-    // заносит в стор список книг (books)
-    this.props.booksLoaded(data);
+    bookstoreService.getBooks().then(data => {
+      booksLoaded(data);
+    });
   }
 
   render() {
-    const { books } = this.props;
+    const { books, loading } = this.props;
+
+    if (loading) {
+      return <Spinner />;
+    }
+
     return (
       <BooksListStyled>
         {books.map(book => (
@@ -40,7 +46,8 @@ class BookList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    books: state.books
+    books: state.books,
+    loading: state.loading
   };
 };
 

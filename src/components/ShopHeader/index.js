@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Header = styled.header`
   font-size: 26px;
@@ -10,7 +11,7 @@ const Header = styled.header`
   justify-content: space-between;
 `;
 
-const Title = styled.a`
+const Title = styled(Link)`
   color: #000;
   text-decoration: none;
 `;
@@ -18,7 +19,7 @@ const Title = styled.a`
 const ShopHeader = ({ numItems, total }) => {
   return (
     <Header>
-      <Title href="/">ReStore</Title>
+      <Title to="/">ReStore</Title>
       <span>
         <i className="fa fa-shopping-cart" /> {numItems} items (${total})
       </span>
