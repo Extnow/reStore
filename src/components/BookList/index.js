@@ -1,10 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { booksLoaded } from '../../actions';
 import { BookListItem } from '../BookListItem';
 import { withBookstoreService } from '../hoc/withBookstoreService';
 import { compose } from '../../utils';
+
+const BooksListStyled = styled.ul`
+  list-style-type: none;
+`;
+
+const BookListItemStyled = styled.li`
+  margin-bottom: 20px;
+`;
 
 class BookList extends React.Component {
   componentDidMount() {
@@ -18,13 +27,13 @@ class BookList extends React.Component {
   render() {
     const { books } = this.props;
     return (
-      <ul>
+      <BooksListStyled>
         {books.map(book => (
-          <li key={book.id}>
+          <BookListItemStyled key={book.id}>
             <BookListItem book={book} />
-          </li>
+          </BookListItemStyled>
         ))}
-      </ul>
+      </BooksListStyled>
     );
   }
 }
