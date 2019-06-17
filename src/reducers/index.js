@@ -12,7 +12,7 @@ const reducer = (state = initialState, action) => {
         loading: true,
         error: null
       };
-    case 'BFETCH_BOOKS_SUCCESS':
+    case 'FETCH_BOOKS_SUCCESS':
       return {
         books: action.payload,
         loading: false,

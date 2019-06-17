@@ -17,7 +17,19 @@ const BookListItemStyled = styled.li`
   margin-bottom: 20px;
 `;
 
-class BookList extends React.Component {
+const BookList = ({ books }) => {
+  return (
+    <BooksListStyled>
+      {books.map(book => (
+        <BookListItemStyled key={book.id}>
+          <BookListItem book={book} />
+        </BookListItemStyled>
+      ))}
+    </BooksListStyled>
+  );
+};
+
+class BookListContainer extends React.Component {
   componentDidMount() {
     this.props.fetchBooks();
   }
@@ -33,15 +45,7 @@ class BookList extends React.Component {
       return <ErrorIndicator />;
     }
 
-    return (
-      <BooksListStyled>
-        {books.map(book => (
-          <BookListItemStyled key={book.id}>
-            <BookListItem book={book} />
-          </BookListItemStyled>
-        ))}
-      </BooksListStyled>
-    );
+    return <BookList books={books} />;
   }
 }
 
@@ -66,4 +70,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   )
-)(BookList);
+)(BookListContainer);
