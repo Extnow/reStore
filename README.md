@@ -7,3 +7,4 @@
 - custom service (services/bookstore-service)
 - ErrorBoundary (components/ErrorBoundary)
 - hoc (components/hoc)
+- второй аргумент у mapDispatchToProps и mapStateToProps (ownProps)

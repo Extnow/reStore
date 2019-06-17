@@ -11,18 +11,13 @@ const Header = styled.header`
   justify-content: space-between;
 `;
 
-const Title = styled(Link)`
-  color: #000;
-  text-decoration: none;
-`;
-
 const ShopHeader = ({ numItems, total }) => {
   return (
     <Header>
-      <Title to="/">ReStore</Title>
-      <span>
+      <Link to="/">ReStore</Link>
+      <Link to="/cart">
         <i className="fa fa-shopping-cart" /> {numItems} items (${total})
-      </span>
+      </Link>
     </Header>
   );
 };
