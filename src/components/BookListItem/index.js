@@ -9,7 +9,7 @@ const BookCover = styled.div`
   margin-right: 30px;
 `;
 
-const BookListItem = ({ book }) => {
+const BookListItem = ({ book, onAddedToCart }) => {
   const { title, img, author, price } = book;
 
   return (
@@ -22,7 +22,7 @@ const BookListItem = ({ book }) => {
         <div>Автор: {author}</div>
         <div>Цена: {price}₽</div>
         <br />
-        <button>Добавить в корзину</button>
+        <button onClick={onAddedToCart}>Добавить в корзину</button>
       </div>
     </BookListItemStyled>
   );
