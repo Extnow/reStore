@@ -51,9 +51,9 @@ class BookListContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    books: state.books,
-    loading: state.loading,
-    error: state.error
+    books: state.booksList.books,
+    loading: state.booksList.loading,
+    error: state.booksList.error
   };
 };
 
